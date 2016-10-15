@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+header {
+  text-align: center;
+}
+
+nav {
+  text-align: right;
+}
+
+.nav-button {
+  background-color: $white;
+  font-size: 1.2em;
+  margin: 1em;
+  border: 0;
+  color: $dark-grey;
+}
