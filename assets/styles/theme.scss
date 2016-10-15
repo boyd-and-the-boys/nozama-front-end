@@ -1,21 +1,44 @@
 * {
   margin: 0;
   padding: 0;
-  font-size: 12px;
 }
 
+//HEADER
 header {
   text-align: center;
+  background-color: $light-grey;
+  padding-bottom: 2em;
 }
 
 nav {
   text-align: right;
+
 }
 
 .nav-button {
-  background-color: $white;
+  background-color: $light-grey;
   font-size: 1.2em;
   margin: 1em;
   border: 0;
-  color: $dark-grey;
 }
+
+//CONTENT
+#content {
+  width: 900px;
+  margin: 3em auto;
+}
+
+
+//PRODUCTS
+.product {
+  width: 300px;
+  text-align: left;
+}
+
+.image-placeholder {
+  border: $light-grey 1px solid;
+  width: 300px;
+  height: 300px;
+}
+
+//FOOTER
