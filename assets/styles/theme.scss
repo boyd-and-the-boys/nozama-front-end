@@ -12,7 +12,7 @@ header {
 
 nav {
   text-align: right;
-
+  margin: 0 2em;
 }
 
 .nav-button {
@@ -20,6 +20,28 @@ nav {
   font-size: 1.2em;
   margin: 1em;
   border: 0;
+}
+
+.change-pwd-button{
+  display: none;
+}
+
+.log-out-button {
+  display: none;
+}
+
+//LOG IN PAGE
+#log-in-page {
+  display:none;
+  width: 900px;
+  margin: 3em auto;
+}
+
+//USER PAGE
+#user-page {
+  display:none;
+  width: 900px;
+  margin: 3em auto;
 }
 
 //CONTENT

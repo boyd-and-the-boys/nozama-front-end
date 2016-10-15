@@ -4,6 +4,13 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
 
+const onLogIn = function (event) {
+  event.preventDefault();
+  console.log("button clicked");
+  $('#log-in-page').show();
+  $('#content').html("");
+};
+
 const onSignUp = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
@@ -29,7 +36,6 @@ const onSignOut = function () {
 
 const onChangePassword = function (event) {
   event.preventDefault();
-  console.log('button clicked')
   let data = getFormFields(event.target);
   api.changePassword(data)
     .done (ui.changePasswordSuccess)
@@ -37,10 +43,11 @@ const onChangePassword = function (event) {
 };
 
 const addHandlers = () => {
-  $('#sign-up').on('submit', onSignUp);
+  $('.log-in-button').on('click', onLogIn);
+  $('#sign-up-form').on('submit', onSignUp);
   $('#sign-in-form').on('submit', onSignIn);
   $('#change-pwd-form').on('submit', onChangePassword);
-  $('#sign-out').on('click', onSignOut);
+  $('.log-out-button').on('click', onSignOut);
 };
 
 module.exports = {
