@@ -14,10 +14,12 @@ const signInSuccess = (data) => {
   app.user = data.user;
   console.log(data);
   $('#log-in-page').hide();
-  $('#content').html(loadProducts(data));
+  $('#content').show();
+  $('.user-dropdown').show();
   $('.log-in-button').hide();
-  $('.log-out-button').show();
   $('.change-pwd-button').show();
+  $('.my-orders-button').show();
+  $('.log-out-button').show();
 };
 
 const signOutSuccess = () => {

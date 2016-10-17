@@ -26,8 +26,38 @@ nav {
   display: none;
 }
 
+.my-orders-button {
+  display: none;
+}
+
 .log-out-button {
   display: none;
+}
+
+.user-dropdown {
+  display: inline-block;
+  text-align: right;
+  padding: none;
+  border: none;
+}
+
+.dropdown-button {
+  border: none;
+  background-color: transparent;
+  margin: 2px 0;
+}
+
+#shopping-cart{
+  // display: none;
+  height: 100%;
+  width: 30%;
+  border: $light-grey solid 1px;
+  background-color: $white;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  top: 50px;
+  transition: 0.5s;
 }
 
 //LOG IN PAGE
@@ -62,5 +92,3 @@ nav {
   width: 300px;
   height: 300px;
 }
-
-//FOOTER
