@@ -83,5 +83,38 @@
       <!--handlebars templates go here-->
     </div>
 
+    <div id="checkout">
+      <form action="/submit-payment" method="POST">
+        <!--
+        Don't change src. We can change the class, but I think stripe-button gives the Stripe styling
+        data-amount is the price in cents (2000 = $20.00)
+        data-name is the name of our website (Nozama/Generic Assemblage)
+        data-description can be anything, but might make the most sense as the number of t-shirts
+        data-image is a logo (Jen, we can use the logo you made; they recommend minimum 128x128)
+        data-locale="auto" sets the language to the user's current area. Probably shouldn't change this
+        data-zip-code specifies whether Stripe should verify the zip code. Stripe highly recommends setting to true
+        data-billing-address specifies whether Stripe should collect billing address info. Default is false
+        data-currency sets the currency used (3-letter ISO code). Default is USD
+        data-shipping-address specifies whether Stripe should collect shipping address info. Default is false
+        data-panel-label changes the text on the payment button within the form (Subscribe, Pay, {{amount}}, etc.). {{amount}} will show the price shown in data-amount
+        data-label changes the text on the blue button that opens the form. Default is "Pay with Card"
+        data-email will prefill the Checkout email field if it is already known
+        data-remember-me specifies whether to include the "Remember Me" checkbox. Default is true
+        opened allows you to set a callback to invoke when the form is opened
+        closed allows you to set a callback to invoke when the form is closed
+        -->
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+          data-amount="2000"
+          data-name="Nozama.com"
+          data-description="2 widgets"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto"
+          data-zip-code="true">
+        </script>
+      </form>
+    </div>
+
   </body>
 </html>
