@@ -13,10 +13,17 @@ const onLogIn = function (event) {
 
 const onSignUp = function (event) {
   event.preventDefault();
-  let data = getFormFields(event.target);
-  api.signUp(data)
-    .done (ui.signUpSuccess)
-    .fail (ui.failure);
+  let form = event.target;
+
+  let signUpData = getFormFields(form);
+
+  api.signUp(signUpData)
+  .done(function (data, textStatus, jqXHR) {
+    api.signIn(data, textStatus, jqXHR, signUpData)
+      .done(ui.signInSuccess)
+      .fail(ui.signInFailure);
+  })
+  .fail(ui.failure);
 };
 
 const onSignIn = function (event) {
