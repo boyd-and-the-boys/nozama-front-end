@@ -10,11 +10,11 @@ const signUp = (data) => {
   });
 };
 
-const signIn = (data) => {
-  return $.ajax ({
-      url: app.host + '/sign-in',
-      method: 'POST',
-      data: data,
+const signIn = (data, textStatus, jqXHR, signUpData) => {
+  return $.ajax({
+    url: app.host + '/sign-in',
+    method: 'POST',
+    data: signUpData ? signUpData : data
   });
 };
 
