@@ -1,13 +1,13 @@
 'use strict';
 
-const loadSelectedProducts = require ('../../templates/selectedproducts.handlebars');
+const loadSelectedProducts = require ('../../templates/shoppingcart.handlebars');
 
-const getSelectedProductsSuccess = (data) => {
+const getMyShoppingCartSuccess = (data) => {
   console.log(data);
-  $('#content').html(loadSelectedProducts(data));
+  $('.selected-products').html(loadSelectedProducts(data));
 };
 
-const postSelectedProductsSuccess = (data) => {
+const createSelectedProductsSuccess = (data) => {
   console.log(data);
 };
 //
@@ -24,8 +24,8 @@ const failure = (error) => {
 };
 
 module.exports = {
-  getSelectedProductsSuccess,
-  postSelectedProductsSuccess,
+  getMyShoppingCartSuccess,
+  createSelectedProductsSuccess,
   // patchSelectedProductsSuccess,
   // deleteSelectedProductsSuccess,
   failure,

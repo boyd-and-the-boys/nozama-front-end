@@ -1,8 +1,6 @@
 'use strict';
 
 const app = require ('../app');
-const loadProducts = require ('../../templates/products.handlebars');
-
 
 const signUpSuccess = (data) => {
   app.user = data.user;

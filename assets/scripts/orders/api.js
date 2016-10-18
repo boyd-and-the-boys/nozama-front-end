@@ -9,11 +9,13 @@ const getOrders = function() {
   });
 };
 
-const postOrders = (data) => {
+const createOrder = () => {
   return $.ajax({
     url: app.host + '/orders',
     method: 'POST',
-    data: data,
+    data: {
+        isComplete: false,
+    }
   });
 };
 
@@ -40,7 +42,7 @@ const deleteOrders = () => {
 
 module.exports = {
   getOrders,
-  postOrders,
+  createOrder,
   patchOrders,
   deleteOrders
 };

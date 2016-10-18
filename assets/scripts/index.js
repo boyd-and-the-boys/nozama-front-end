@@ -8,11 +8,21 @@ require('./example');
 
 const authEvents = require('./auth/events.js');
 const productEvents = require('./products/events.js');
+const orderEvents = require('./orders/events.js');
+const selectedProductsEvents = require('./selected-products/events.js');
+
 
 
 // On document ready
 $(() => {
+  $('.user-dropdown').hide();
   authEvents.addHandlers();
   productEvents.onGetProducts();
+  orderEvents.addHandlers();
+  selectedProductsEvents.addHandlers();
+
+  // orderEvents.onCreateOrder();
+
+
 
 });

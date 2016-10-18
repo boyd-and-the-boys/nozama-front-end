@@ -1,18 +1,29 @@
 'use strict';
 
 const app = require ('../app');
-
-const getSelectedProducts = function() {
+const getMyShoppingCart = function() {
+  // let orderId = $('.shopping-cart').data('id');
   return $.ajax({
-    url: app.host + '/selected-products',
+    url: app.host + '/order-products',
     method: 'GET',
+    headers: {
+        authorization: 'Token token=' + app.user.token,
+      },
+    data : {
+      selectedProduct: {
+                      _order : "58052acc0098383fccebe06a",
+                    }
+                  }
   });
 };
 
-const postSelectedProducts = (data) => {
+const createSelectedProduct = (data) => {
   return $.ajax({
-    url: app.host + '/selected-products/',
+    url: app.host + '/selected-products',
     method: 'POST',
+    headers: {
+      authorization: 'Token token=' + app.user.token,
+    },
     data: data,
   });
 };
@@ -50,8 +61,8 @@ const deleteSelectedProducts = () => {
  };
 
 module.exports = {
-  getSelectedProducts,
-  postSelectedProducts,
+  getMyShoppingCart,
+  createSelectedProduct,
   patchSelectedProducts,
   showSelectedProducts,
   deleteSelectedProducts

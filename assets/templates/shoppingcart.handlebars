@@ -1,0 +1,18 @@
+<div class="shopping-cart" data-id={{_order._id}}>
+  {{#each selectedProducts}}
+    <div class="selected-product" data-id={{_id}}>
+      <div class="selected-product-name spformat">
+        {{_product.name}}
+      </div>
+      <div class="selected-product-quantity spformat">
+        {{quantity}}
+        <input type="text" name="selectedProduct[quantity]" placeholder="quantity">
+      </div>
+      <div class="selected-product-size spformat">
+        {{size}}
+        <input type="text" name="selectedProduct[size]" placeholder="quantity">
+      </div>
+      <div class="selected-product-price spformat">${{_product.price}}</div>
+    </div>
+  {{/each}}
+</div>

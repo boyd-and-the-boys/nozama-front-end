@@ -47,10 +47,12 @@ nav {
   margin: 2px 0;
 }
 
-#shopping-cart{
-  // display: none;
-  height: 100%;
+//SHOPPING CART
+#shopping-cart {
+  display: none;
   width: 30%;
+  height: 100%;
+  overflow: scroll;
   border: $light-grey solid 1px;
   background-color: $white;
   position: fixed;
@@ -58,6 +60,14 @@ nav {
   right: 0;
   top: 50px;
   transition: 0.5s;
+}
+
+.selected-product {
+  margin: 2em 2em;
+}
+
+.spformat {
+  margin: 10px;
 }
 
 //LOG IN PAGE
@@ -85,10 +95,11 @@ nav {
 .product {
   width: 300px;
   text-align: left;
+  float: left;
 }
 
 .image-placeholder {
   border: $light-grey 1px solid;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }

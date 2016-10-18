@@ -4,22 +4,14 @@
 const api = require('./api');
 const ui = require('./ui');
 
-const onGetProducts = function (event) {
-  // event.preventDefault();
-  api.getProducts(event)
+const onGetProducts = function () {
+  api.getProducts()
     .done (ui.getProductsSuccess)
     .fail (ui.failure);
 };
 
-// const onGetSingleTrip = function (event) {
-//   event.preventDefault();
-//   let tripId = $(this).data('id');
-//   api.getSingleTrip(tripId)
-//     .done (ui.getSingleTripSuccess)
-//     .fail (ui.failure);
-// };
-
 const addHandlers = () => {
+
 };
 
 module.exports = {
