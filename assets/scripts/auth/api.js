@@ -49,10 +49,21 @@ const changePassword = (data) => {
   });
 };
 
+const deleteUser = () => {
+  return $.ajax({
+    url: app.host + '/users/' + app.user._id,
+    method: 'DELETE',
+    headers: {
+      authorization: 'Token token=' + app.user.token,
+      },
+   });
+ };
+
 module.exports = {
   guestSignUp,
   userSignUp,
   signIn,
   signOut,
   changePassword,
+  deleteUser
 };

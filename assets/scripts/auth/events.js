@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
+const app = require('../app');
 
 const onLogIn = function (event) {
   event.preventDefault();
@@ -25,8 +26,12 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
-  api.signIn(data)
-    .done (ui.signInSuccess)
+  api.deleteUser()
+    .done (function () {
+      api.signIn(data)
+        .done (ui.signInSuccess)
+        .fail (ui.failure);
+    })
     .fail (ui.failure);
 };
 
@@ -49,12 +54,21 @@ const onChangePassword = function (event) {
     .fail (ui.failure);
 };
 
+const onDeleteUser = function () {
+  if (app.user.guest) {
+    api.deleteUser()
+      .done()
+      .fail(ui.failure);
+  }
+};
+
 const addHandlers = () => {
   $('.log-in-button').on('click', onLogIn);
   $('#sign-up-form').on('submit', onSignUp);
   $('#sign-in-form').on('submit', onSignIn);
   $('#change-pwd-form').on('submit', onChangePassword);
   $('.log-out-button').on('click', onSignOut);
+  $(window).on('beforeunload', onDeleteUser);
 };
 
 module.exports = {
