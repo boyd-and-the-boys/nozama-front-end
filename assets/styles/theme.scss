@@ -13,6 +13,7 @@ header {
 nav {
   text-align: right;
   margin: 0 2em;
+
 }
 
 .nav-button {
@@ -45,6 +46,10 @@ nav {
   border: none;
   background-color: transparent;
   margin: 2px 0;
+}
+
+.img {
+  background-color: $light-grey;
 }
 
 //SHOPPING CART
