@@ -3,8 +3,6 @@
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
-const app = require ('../app');
-
 
 const onGetMyShoppingCart = function (event) {
   event.preventDefault();
@@ -20,7 +18,6 @@ const onCreateSelectedProduct = function (event) {
   let data = getFormFields(event.target);
   data.selectedProduct._order = orderId;
   data.selectedProduct._product = $(event.target).parent().data('id');
-  console.log(data);
   api.createSelectedProduct(data)
     .done (ui.createSelectedProductsSuccess)
     .fail (ui.failure);
@@ -34,12 +31,12 @@ const onCreateSelectedProduct = function (event) {
 //     .fail (ui.failure);
 // };
 
-const onDeleteSelectedProduct = () => {
-  event.preventDefault();
-  api.deleteSelectedProducts()
-    .done (ui.deleteSelectedProductsSuccess)
-    .fail (ui.failure);
-};
+// const onDeleteSelectedProduct = () => {
+//   event.preventDefault();
+//   api.deleteSelectedProducts()
+//     .done (ui.deleteSelectedProductsSuccess)
+//     .fail (ui.failure);
+// };
 
 const addHandlers = () => {
   $('.glyphicon-shopping-cart').on('click', onGetMyShoppingCart);

@@ -2,16 +2,34 @@
   <span class="product" data-id={{_id}}>
 
     <div class="image-placeholder"></div>
-    <div>{{_id}}</div>
     <!-- <img src={{photo}} alt="trip photo"/> -->
     <p class="product-name">{{name}}</p>
     <p class="product-price">${{price}}</p>
     <form class="select-product-form">
-      <fieldset>
-        <input type="text" name="selectedProduct[quantity]" placeholder="quantity">
-        <input type="text" name="selectedProduct[size]" placeholder="size">
-        <input type="submit" name="submit" value="Submit">
-      </fieldset>
+      <select name="selectedProduct[size]" class="custom-select size float-left">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+      </select>
+      <select name="selectedProduct[quantity]" class="custom-select quantity float-left">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+      </select>
+      <input class="float-left add-button" type="submit" name="submit" value="ADD">
+
     </form>
   </span>
 {{/each}}
+</div>
+
+
+<!-- <fieldset>
+  <input type="text" name="selectedProduct[quantity]" placeholder="quantity">
+  <input type="text" name="selectedProduct[size]" placeholder="size">
+  <input type="submit" name="submit" value="Submit">
+</fieldset> -->

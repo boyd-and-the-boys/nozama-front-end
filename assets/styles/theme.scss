@@ -48,23 +48,25 @@ nav {
   margin: 2px 0;
 }
 
-.img {
-  background-color: $light-grey;
-}
-
 //SHOPPING CART
 #shopping-cart {
   display: none;
-  width: 30%;
-  height: 100%;
+  width: 20%;
+  height: 95%;
   overflow: scroll;
-  border: $light-grey solid 1px;
+  border: $medium-grey solid 2px;
   background-color: $white;
   position: fixed;
   z-index: 1;
   right: 0;
-  top: 50px;
-  transition: 0.5s;
+  bottom: 0;
+  transition: 1s;
+  padding: 2em;
+}
+
+#shopping-cart h2 {
+  text-align: center;
+  font-size: 2em;
 }
 
 .selected-product {
@@ -73,6 +75,10 @@ nav {
 
 .spformat {
   margin: 10px;
+}
+
+#checkout {
+  float: right;
 }
 
 //LOG IN PAGE
@@ -95,7 +101,6 @@ nav {
   margin: 3em auto;
 }
 
-
 //PRODUCTS
 .product {
   width: 300px;
@@ -107,4 +112,15 @@ nav {
   border: $light-grey 1px solid;
   width: 200px;
   height: 200px;
+}
+
+.form-control {
+  width: 40px;
+  padding: -2px;
+  background-color: $dark-grey;
+  color: $white;
+}
+
+.float-left {
+  float: left;
 }

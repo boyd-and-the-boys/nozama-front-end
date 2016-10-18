@@ -22,8 +22,6 @@ const onCreateOrder = function () {
     .fail (ui.failure);
 };
 
-
-
 const addHandlers = () => {
 
 };
