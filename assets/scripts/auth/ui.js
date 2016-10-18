@@ -32,8 +32,7 @@ const signInSuccess = (data) => {
   $('.log-out-button').show();
 };
 
-const signOutSuccess = (data) => {
-  app.user = data.user;
+const signOutSuccess = () => {
   $('.log-in-button').show();
   $('.log-out-button').hide();
   $('.change-pwd-button').hide();

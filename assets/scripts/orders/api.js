@@ -46,9 +46,20 @@ const deleteOrders = () => {
    });
  };
 
+ const getMyShoppingCart = () => {
+   return $.ajax({
+     url: app.host + '/my-shopping-cart',
+     method: 'GET',
+     headers: {
+       authorization: 'Token token=' + app.user.token,
+       },
+    });
+ };
+
 module.exports = {
   getOrders,
   createOrder,
   patchOrders,
-  deleteOrders
+  deleteOrders,
+  getMyShoppingCart
 };

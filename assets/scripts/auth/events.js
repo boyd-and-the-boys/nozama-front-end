@@ -4,6 +4,8 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
 const app = require('../app');
+const orderApi = require('../orders/api');
+const orderUi = require('../orders/ui');
 
 const onLogIn = function (event) {
   event.preventDefault();
@@ -29,7 +31,16 @@ const onSignIn = function (event) {
   api.deleteUser()
     .done (function () {
       api.signIn(data)
-        .done (ui.signInSuccess)
+        .done (function (data) {
+          ui.signInSuccess(data);
+          orderApi.getMyShoppingCart()
+            .done (function (data) {
+              if (data.orders.length > 0) {
+                $('#shopping-cart').data('id', data.orders[0]._id);
+              }
+            })
+            .fail (ui.failure);
+        })
         .fail (ui.failure);
     })
     .fail (ui.failure);
@@ -39,10 +50,16 @@ const onSignOut = function () {
   event.preventDefault();
   api.signOut()
     .done (function () {
+      ui.signOutSuccess();
       api.guestSignUp()
-        .done(ui.signOutSuccess)
-        .fail(ui.failure);
-    })
+        .done ( function (data) {
+          ui.guestSignUpSuccess(data);
+          orderApi.createOrder()
+            .done(orderUi.createOrderSuccess)
+            .fail(orderUi.failure);
+          })
+        .fail (ui.failure);
+      })
     .fail (ui.failure);
 };
 
