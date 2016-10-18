@@ -17,12 +17,8 @@ const onSignUp = function (event) {
 
   let signUpData = getFormFields(form);
 
-  api.signUp(signUpData)
-  .done(function (data, textStatus, jqXHR) {
-    api.signIn(data, textStatus, jqXHR, signUpData)
-      .done(ui.signInSuccess)
-      .fail(ui.signInFailure);
-  })
+  api.userSignUp(signUpData)
+  .done(ui.userSignUpSuccess)
   .fail(ui.failure);
 };
 
@@ -37,7 +33,11 @@ const onSignIn = function (event) {
 const onSignOut = function () {
   event.preventDefault();
   api.signOut()
-    .done (ui.signOutSuccess)
+    .done (function () {
+      api.guestSignUp()
+        .done(ui.signOutSuccess)
+        .fail(ui.failure);
+    })
     .fail (ui.failure);
 };
 

@@ -7,6 +7,8 @@
 require('./example');
 
 const authEvents = require('./auth/events.js');
+const authApi = require('./auth/api.js');
+const authUi = require('./auth/ui.js');
 const productEvents = require('./products/events.js');
 const orderEvents = require('./orders/events.js');
 const selectedProductsEvents = require('./selected-products/events.js');
@@ -20,6 +22,9 @@ $(() => {
   productEvents.onGetProducts();
   orderEvents.addHandlers();
   selectedProductsEvents.addHandlers();
+  authApi.guestSignUp()
+    .done(authUi.guestSignUpSuccess)
+    .fail(authUi.failure);
 
   // orderEvents.onCreateOrder();
 

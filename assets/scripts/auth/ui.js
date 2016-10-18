@@ -2,10 +2,22 @@
 
 const app = require ('../app');
 
-const signUpSuccess = (data) => {
+const userSignUpSuccess = () => {
+  // app.user.email = aldkfjalkdf
+  app.user.guest = false;
+  console.log("Success");
+  $('#log-in-page').hide();
+  $('#content').show();
+  $('.user-dropdown').show();
+  $('.log-in-button').hide();
+  $('.change-pwd-button').show();
+  $('.my-orders-button').show();
+  $('.log-out-button').show();
+};
+
+const guestSignUpSuccess = (data) => {
   app.user = data.user;
   console.log(data);
-
 };
 
 const signInSuccess = (data) => {
@@ -20,8 +32,8 @@ const signInSuccess = (data) => {
   $('.log-out-button').show();
 };
 
-const signOutSuccess = () => {
-  app.user = null;
+const signOutSuccess = (data) => {
+  app.user = data.user;
   $('.log-in-button').show();
   $('.log-out-button').hide();
   $('.change-pwd-button').hide();
@@ -33,11 +45,13 @@ const changePasswordSuccess = () => {
 };
 
 const failure = (error) => {
+  console.error(error);
 };
 
 
 module.exports = {
-  signUpSuccess,
+  userSignUpSuccess,
+  guestSignUpSuccess,
   signInSuccess,
   signOutSuccess,
   changePasswordSuccess,
