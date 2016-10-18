@@ -50,9 +50,9 @@ const showSelectedProducts = (data) => {
   });
 };
 
-const deleteSelectedProducts = () => {
+const deleteSelectedProduct = (id) => {
   return $.ajax({
-    url: app.host + '/selected-products',
+    url: app.host + '/selected-products/' + id,
     method: 'DELETE',
     headers: {
       authorization: 'Token token=' + app.user.token,
@@ -65,5 +65,5 @@ module.exports = {
   createSelectedProduct,
   patchSelectedProducts,
   showSelectedProducts,
-  deleteSelectedProducts
+  deleteSelectedProduct
 };

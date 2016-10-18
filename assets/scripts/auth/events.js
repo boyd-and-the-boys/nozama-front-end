@@ -75,21 +75,12 @@ const onChangePassword = function (event) {
     .fail (ui.failure);
 };
 
-const onDeleteUser = function () {
-  if (app.user.guest) {
-    api.deleteUser()
-      .done()
-      .fail(ui.failure);
-  }
-};
-
 const addHandlers = () => {
   $('.log-in-button').on('click', onLogIn);
   $('#sign-up-form').on('submit', onSignUp);
   $('#sign-in-form').on('submit', onSignIn);
   $('#change-pwd-form').on('submit', onChangePassword);
   $('.log-out-button').on('click', onSignOut);
-  $(window).on('beforeunload', onDeleteUser);
 };
 
 module.exports = {

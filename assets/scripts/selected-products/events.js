@@ -31,24 +31,12 @@ const onCreateSelectedProduct = function (event) {
 //     .fail (ui.failure);
 // };
 
-// const onDeleteSelectedProduct = () => {
-//   event.preventDefault();
-//   api.deleteSelectedProducts()
-//     .done (ui.deleteSelectedProductsSuccess)
-//     .fail (ui.failure);
-// };
 
 const addHandlers = () => {
   $('.glyphicon-shopping-cart').on('click', onGetMyShoppingCart);
   $('#content').on('submit', '.select-product-form', onCreateSelectedProduct);
-
-
 };
 
 module.exports = {
   addHandlers,
-  onGetMyShoppingCart,
-  // onPostSelectedProducts,
-  // onPatchSelectedProducts,
-  // onDeleteSelectedProducts
 };
