@@ -2,7 +2,7 @@
 
 const app = require ('../app');
 const getMyShoppingCart = function() {
-  // let orderId = $('.shopping-cart').data('id');
+  let orderId = $('#shopping-cart').data('id');
   return $.ajax({
     url: app.host + '/order-products',
     method: 'GET',
@@ -11,9 +11,9 @@ const getMyShoppingCart = function() {
       },
     data : {
       selectedProduct: {
-                      _order : "58052acc0098383fccebe06a",
-                    }
-                  }
+        _order : orderId,
+      }
+    }
   });
 };
 

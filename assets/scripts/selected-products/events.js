@@ -16,8 +16,9 @@ const onGetMyShoppingCart = function (event) {
 
 const onCreateSelectedProduct = function (event) {
   event.preventDefault();
+  let orderId = $('#shopping-cart').data('id');
   let data = getFormFields(event.target);
-  data.selectedProduct._order = "58052acc0098383fccebe06a";
+  data.selectedProduct._order = orderId;
   data.selectedProduct._product = $(event.target).parent().data('id');
   console.log(data);
   api.createSelectedProduct(data)
