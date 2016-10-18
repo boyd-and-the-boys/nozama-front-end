@@ -4,6 +4,8 @@
 const api = require('./api');
 const ui = require('./ui');
 
+const app = require('../app');
+
 const onGetOrders = function (event) {
   event.preventDefault();
   api.getOrders(event)
@@ -22,8 +24,16 @@ const onCreateOrder = function () {
     .fail (ui.failure);
 };
 
-const addHandlers = () => {
+const onDeleteOrder = function () {
+  if (app.user.guest) {
+    api.deleteOrder()
+      .done()
+      .fail(ui.failure);
+  }
+};
 
+const addHandlers = () => {
+  $(window).on('beforeunload', onDeleteOrder);
 };
 
 module.exports = {

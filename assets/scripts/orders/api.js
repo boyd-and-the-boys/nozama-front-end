@@ -36,9 +36,10 @@ const patchOrders = (data) => {
   });
 };
 
-const deleteOrders = () => {
+const deleteOrder = () => {
+  let orderId = $('#shopping-cart').data('id');
   return $.ajax({
-    url: app.host + '/orders',
+    url: app.host + '/orders/' + orderId,
     method: 'DELETE',
     headers: {
       authorization: 'Token token=' + app.user.token,
@@ -60,6 +61,6 @@ module.exports = {
   getOrders,
   createOrder,
   patchOrders,
-  deleteOrders,
+  deleteOrder,
   getMyShoppingCart
 };

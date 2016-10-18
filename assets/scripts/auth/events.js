@@ -28,16 +28,20 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
-  api.deleteUser()
+  orderApi.deleteOrder()
     .done (function () {
-      api.signIn(data)
-        .done (function (data) {
-          ui.signInSuccess(data);
-          orderApi.getMyShoppingCart()
+      api.deleteUser()
+        .done (function () {
+          api.signIn(data)
             .done (function (data) {
-              if (data.orders.length > 0) {
-                $('#shopping-cart').data('id', data.orders[0]._id);
-              }
+              ui.signInSuccess(data);
+              orderApi.getMyShoppingCart()
+                .done (function (data) {
+                  if (data.orders.length > 0) {
+                    $('#shopping-cart').data('id', data.orders[0]._id);
+                  }
+                })
+                .fail (ui.failure);
             })
             .fail (ui.failure);
         })
