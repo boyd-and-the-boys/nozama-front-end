@@ -36,6 +36,7 @@ const signOutSuccess = () => {
   $('.log-in-button').show();
   $('.log-out-button').hide();
   $('.change-pwd-button').hide();
+  $('.user-dropdown').hide();
 };
 
 const changePasswordSuccess = () => {
