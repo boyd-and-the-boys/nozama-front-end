@@ -9,6 +9,8 @@ const getOrdersSuccess = (data) => {
 
 const createOrderSuccess = (data) => {
   console.log(data);
+  $('#shopping-cart').data('id', data.order._id);
+  console.log($('#shopping-cart').data('id'));
 };
 
 const failure = (error) => {

@@ -12,8 +12,13 @@ const onGetOrders = function (event) {
 };
 
 const onCreateOrder = function () {
-  api.createOrder()
-    .done (ui.getOrdersSuccess)
+  let data = {};
+  data.order = {
+    isComplete: false
+  };
+  console.log(data);
+  api.createOrder(data)
+    .done (ui.createOrderSuccess)
     .fail (ui.failure);
 };
 

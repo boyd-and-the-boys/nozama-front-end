@@ -10,12 +10,18 @@ const getOrders = function() {
 };
 
 const createOrder = () => {
+  let data = {};
+  data.order = {
+    isComplete: false
+  };
+  console.log(data);
   return $.ajax({
     url: app.host + '/orders',
     method: 'POST',
-    data: {
-        isComplete: false,
-    }
+    headers: {
+      authorization: 'Token token=' + app.user.token
+    },
+    data: data
   });
 };
 
