@@ -22,6 +22,7 @@ $(() => {
   $('.user-dropdown').hide();
   authEvents.addHandlers();
   productEvents.onGetProducts();
+  productEvents.addHandlers();
   orderEvents.addHandlers();
   selectedProductsEvents.addHandlers();
   authApi.guestSignUp()

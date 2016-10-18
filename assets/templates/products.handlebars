@@ -1,10 +1,9 @@
 {{#each products}}
   <span class="product" data-id={{_id}}>
-
-    <div class="image-placeholder"></div>
-    <!-- <img src={{photo}} alt="trip photo"/> -->
+    <img class="photo-small" src={{photoSmall}} alt="smallphoto" data-toggle="modal" data-target=".photo-modal"/>
     <p class="product-name">{{name}}</p>
     <p class="product-price">${{price}}</p>
+
     <form class="select-product-form">
       <select name="selectedProduct[size]" class="custom-select size float-left">
           <option value="S">S</option>
@@ -25,11 +24,18 @@
     </form>
   </span>
 {{/each}}
-</div>
-
-
-<!-- <fieldset>
-  <input type="text" name="selectedProduct[quantity]" placeholder="quantity">
-  <input type="text" name="selectedProduct[size]" placeholder="size">
-  <input type="submit" name="submit" value="Submit">
-</fieldset> -->
+<!--Hidden on loadProducts-->
+<div class="modal fade photo-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img class="photo-large" src={{photoLarge}} alt="largephoto"/>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
