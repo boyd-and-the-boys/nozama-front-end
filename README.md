@@ -6,15 +6,25 @@ dazzle and delight all the lucky souls who lay eyes upon you!
 Multiple technologies were used in building this splendid webpage, including:
 
 Node
+
 Express
+
 Mongo
+
 Mongoose
+
 JavaScript
+
 Heroku
+
 HTML
+
 CSS
+
 Bootstrap
+
 Handlebars
+
 Stripe
 
 Our overarching approach to building this website was highly methodical and
