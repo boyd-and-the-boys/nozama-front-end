@@ -7,12 +7,35 @@
 require('./example');
 
 const authEvents = require('./auth/events.js');
+const authApi = require('./auth/api.js');
+const authUi = require('./auth/ui.js');
 const productEvents = require('./products/events.js');
+const orderEvents = require('./orders/events.js');
+const orderApi = require('./orders/api.js');
+const orderUi = require('./orders/ui.js');
+const selectedProductsEvents = require('./selected-products/events.js');
+
 
 
 // On document ready
 $(() => {
+  $('.user-dropdown').hide();
   authEvents.addHandlers();
   productEvents.onGetProducts();
+  productEvents.addHandlers();
+  orderEvents.addHandlers();
+  selectedProductsEvents.addHandlers();
+  authApi.guestSignUp()
+    .done (function (data) {
+      authUi.guestSignUpSuccess(data);
+      orderApi.createOrder()
+        .done(orderUi.createOrderSuccess)
+        .fail(orderUi.failure);
+    })
+    .fail (authUi.failure);
+
+  // orderEvents.onCreateOrder();
+
+
 
 });

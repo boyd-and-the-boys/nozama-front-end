@@ -9,17 +9,25 @@ const getOrders = function() {
   });
 };
 
-const postOrders = (data) => {
+const createOrder = () => {
+  let data = {};
+  data.order = {
+    isComplete: false
+  };
+  console.log(data);
   return $.ajax({
     url: app.host + '/orders',
     method: 'POST',
-    data: data,
+    headers: {
+      authorization: 'Token token=' + app.user.token
+    },
+    data: data
   });
 };
 
-const patchOrders = (data) => {
+const updateOrder = (data) => {
   return $.ajax({
-    url: app.host + '/orders',
+    url: app.host + '/orders/' + $('#shopping-cart').data('id'),
     method: 'PATCH',
     headers: {
       authorization: 'Token token=' + app.user.token
@@ -28,9 +36,10 @@ const patchOrders = (data) => {
   });
 };
 
-const deleteOrders = () => {
+const deleteOrder = () => {
+  let orderId = $('#shopping-cart').data('id');
   return $.ajax({
-    url: app.host + '/orders',
+    url: app.host + '/orders/' + orderId,
     method: 'DELETE',
     headers: {
       authorization: 'Token token=' + app.user.token,
@@ -38,9 +47,20 @@ const deleteOrders = () => {
    });
  };
 
+ const getMyShoppingCart = () => {
+   return $.ajax({
+     url: app.host + '/my-shopping-cart',
+     method: 'GET',
+     headers: {
+       authorization: 'Token token=' + app.user.token,
+       },
+    });
+ };
+
 module.exports = {
   getOrders,
-  postOrders,
-  patchOrders,
-  deleteOrders
+  createOrder,
+  updateOrder,
+  deleteOrder,
+  getMyShoppingCart
 };

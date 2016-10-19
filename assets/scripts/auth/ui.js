@@ -1,30 +1,42 @@
 'use strict';
 
 const app = require ('../app');
-const loadProducts = require ('../../templates/products.handlebars');
 
+const userSignUpSuccess = () => {
+  // app.user.email = aldkfjalkdf
+  app.user.guest = false;
+  console.log("Success");
+  $('#log-in-page').hide();
+  $('#content').show();
+  $('.user-dropdown').show();
+  $('.log-in-button').hide();
+  $('.change-pwd-button').show();
+  $('.my-orders-button').show();
+  $('.log-out-button').show();
+};
 
-const signUpSuccess = (data) => {
+const guestSignUpSuccess = (data) => {
   app.user = data.user;
   console.log(data);
-
 };
 
 const signInSuccess = (data) => {
   app.user = data.user;
   console.log(data);
   $('#log-in-page').hide();
-  $('#content').html(loadProducts(data));
+  $('#content').show();
+  $('.user-dropdown').show();
   $('.log-in-button').hide();
-  $('.log-out-button').show();
   $('.change-pwd-button').show();
+  $('.my-orders-button').show();
+  $('.log-out-button').show();
 };
 
 const signOutSuccess = () => {
-  app.user = null;
   $('.log-in-button').show();
   $('.log-out-button').hide();
   $('.change-pwd-button').hide();
+  $('.user-dropdown').hide();
 };
 
 const changePasswordSuccess = () => {
@@ -33,11 +45,13 @@ const changePasswordSuccess = () => {
 };
 
 const failure = (error) => {
+  console.error(error);
 };
 
 
 module.exports = {
-  signUpSuccess,
+  userSignUpSuccess,
+  guestSignUpSuccess,
   signInSuccess,
   signOutSuccess,
   changePasswordSuccess,

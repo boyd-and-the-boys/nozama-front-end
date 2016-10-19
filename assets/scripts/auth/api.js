@@ -2,19 +2,29 @@
 
 const app = require ('../app');
 
-const signUp = (data) => {
+const guestSignUp = () => {
   return $.ajax ({
-      url: app.host + '/sign-up',
-      method: 'POST',
-      data: data,
+    url: app.host + '/sign-up',
+    method: 'POST'
   });
 };
 
-const signIn = (data) => {
+const userSignUp = (data) => {
   return $.ajax ({
-      url: app.host + '/sign-in',
-      method: 'POST',
-      data: data,
+    url: app.host + '/sign-up',
+    method: 'PATCH',
+    headers: {
+      authorization: 'Token token=' + app.user.token,
+    },
+    data: data,
+  });
+};
+
+const signIn = (data, textStatus, jqXHR, signUpData) => {
+  return $.ajax({
+    url: app.host + '/sign-in',
+    method: 'POST',
+    data: signUpData ? signUpData : data
   });
 };
 
@@ -30,18 +40,30 @@ const signOut = () => {
 
 const changePassword = (data) => {
   return $.ajax({
-      url: app.host + '/change-password/' + app.user._id,
-      method: 'PATCH',
-      headers: {
-        authorization: 'Token token=' + app.user.token,
-      },
-      data: data,
+    url: app.host + '/change-password/' + app.user._id,
+    method: 'PATCH',
+    headers: {
+      authorization: 'Token token=' + app.user.token,
+    },
+    data: data,
   });
 };
 
+const deleteUser = () => {
+  return $.ajax({
+    url: app.host + '/users/' + app.user._id,
+    method: 'DELETE',
+    headers: {
+      authorization: 'Token token=' + app.user.token,
+      },
+   });
+ };
+
 module.exports = {
-  signUp,
+  guestSignUp,
+  userSignUp,
   signIn,
   signOut,
   changePassword,
+  deleteUser
 };
