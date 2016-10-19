@@ -15,7 +15,7 @@ with the conception of a guest user, which allows users to make a purchase even 
 a logged-in account.
 
 
-**Links:**
+**Links**
 
 **User stories:** http://imgur.com/eKfYvqc
 
