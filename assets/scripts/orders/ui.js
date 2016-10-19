@@ -11,6 +11,13 @@ const createOrderSuccess = (data) => {
   console.log(data);
   $('#shopping-cart').data('id', data.order._id);
   console.log($('#shopping-cart').data('id'));
+  $('#submitPaymentModal').modal('hide');
+};
+
+const updateOrderSuccess = (data) => {
+  console.log(data);
+  console.log("Successful update");
+  $('#submitPaymentModal').modal('hide');
 };
 
 const failure = (error) => {
@@ -20,5 +27,6 @@ const failure = (error) => {
 module.exports = {
   getOrdersSuccess,
   createOrderSuccess,
+  updateOrderSuccess,
   failure,
 };

@@ -25,9 +25,9 @@ const createOrder = () => {
   });
 };
 
-const patchOrders = (data) => {
+const updateOrder = (data) => {
   return $.ajax({
-    url: app.host + '/orders',
+    url: app.host + '/orders/' + $('#shopping-cart').data('id'),
     method: 'PATCH',
     headers: {
       authorization: 'Token token=' + app.user.token
@@ -60,7 +60,7 @@ const deleteOrder = () => {
 module.exports = {
   getOrders,
   createOrder,
-  patchOrders,
+  updateOrder,
   deleteOrder,
   getMyShoppingCart
 };

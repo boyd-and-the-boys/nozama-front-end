@@ -15,13 +15,9 @@ const onGetOrders = function (event) {
     .fail (ui.failure);
 };
 
-const onCreateOrder = function () {
-  let data = {};
-  data.order = {
-    isComplete: false
-  };
-  console.log(data);
-  api.createOrder(data)
+const onCreateOrder = function (event) {
+  event.preventDefault();
+  api.createOrder()
     .done (ui.createOrderSuccess)
     .fail (ui.failure);
 };
@@ -46,9 +42,53 @@ const onDeleteOrder = function () {
   }
 };
 
+const onPaymentSubmit = (event) => {
+  event.preventDefault();
+  // Remove event handler from #payment-form to prevent multiple clicks
+  $('#payment-form').off();
+
+  // Stripe is available due to script at bottom of index.html
+  Stripe.setPublishableKey('pk_test_2saYaU7cKBb0eV7JGudVl4Jo');
+
+  Stripe.card.createToken({
+    number: $('#card-number').val(),
+    cvc: $('#card-cvc').val(),
+    exp_month: $('#card-exp-month').val(),
+    exp_year: $('#card-exp-year').val()
+  },
+  function (status, response) {
+    console.log("Data is:", response);
+    if (response.error) {
+      console.log(response.error.message);
+      $('#payment-errors').html(response.error.message);
+      $('#payment-form').on('submit', onPaymentSubmit);
+    } else {
+      let orderData = {
+        order: {
+          stripeToken: response.id,
+          isComplete: true,
+          dateOrdered: new Date()
+        }
+      };
+      api.updateOrder(orderData)
+        .done(function () {
+          api.createOrder()
+            .done(function (order) {
+              ui.createOrderSuccess(order);
+              $('#payment-form').on('submit', onPaymentSubmit);
+            })
+            .fail(ui.failure);
+        })
+        .fail(ui.failure);
+    }
+  }
+);
+return false;
+};
+
 const addHandlers = () => {
   $(window).on('beforeunload', onDeleteOrder);
-
+  $('#payment-form').on('submit', onPaymentSubmit);
 };
 
 module.exports = {

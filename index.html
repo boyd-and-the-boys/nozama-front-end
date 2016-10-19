@@ -84,7 +84,7 @@
           <form id="payment-form" class="modal-body">
             <h3>Please enter your payment information below:</h3>
 
-            <div class="payment-errors"></div>
+            <div id="payment-errors"></div>
 
             <div class="form-group row modal-row">
               <label class="col-sm-4 col-form-label">
@@ -96,7 +96,7 @@
             </div>
 
             <div class="form-group row modal-row">
-              <label class="col-form-label">
+              <label class="col-sm-4 col-form-label">
                 CVC
               </label>
               <div class="col-sm-8">
@@ -188,6 +188,8 @@
       <!--handlebars templates go here-->
     </div>
 
+
   </div>
+    <script src="https://js.stripe.com/v2/" type="text/javascript"></script>
   </body>
 </html>
