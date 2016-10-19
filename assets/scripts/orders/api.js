@@ -9,6 +9,16 @@ const getOrders = function() {
   });
 };
 
+const getUserOrders = function() {
+  return $.ajax({
+    url: app.host + '/my-orders',
+    method: 'GET',
+    headers: {
+      authorization: 'Token token=' + app.user.token
+    },
+  });
+};
+
 const createOrder = () => {
   let data = {};
   data.order = {
@@ -58,6 +68,7 @@ const deleteOrder = () => {
 
 module.exports = {
   getOrders,
+  getUserOrders,
   createOrder,
   updateOrder,
   deleteOrder,
