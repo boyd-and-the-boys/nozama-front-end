@@ -15,6 +15,15 @@ const onGetMyShoppingCart = function (event) {
     .fail (ui.failure);
 };
 
+const onGetMyOrder = function (event) {
+  event.preventDefault();
+  let orderId = $(event.target).parent().data('id');
+  console.log(orderId);
+  api.getMyOrder(orderId)
+    .done(ui.getMyOrderSuccess)
+    .fail(ui.failure);
+};
+
 const onCreateSelectedProduct = function (event) {
   event.preventDefault();
   let orderId = $('#shopping-cart').data('id');
@@ -64,7 +73,7 @@ const addHandlers = () => {
   $('#shopping-cart').on('submit', '.update-selproduct-form', onUpdateSelectedProduct);
   $('#shopping-cart').on('click', '.remove', onDeleteSelectedProduct);
   $('.div').on('click', hideShoppingCart);
-
+  $('#user-page').on('click', '.order', onGetMyOrder);
 };
 
 module.exports = {
