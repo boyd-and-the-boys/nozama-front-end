@@ -8,7 +8,9 @@ const getOrdersSuccess = (data) => {
 
 const getUserOrdersSuccess = (data) => {
   console.log(data);
-  // $('#content').html(loadOrders(data));
+  $('#content').hide();
+  $('#user-page').html(loadOrders(data));
+  $('#user-page').show();
 };
 
 const createOrderSuccess = (data) => {
