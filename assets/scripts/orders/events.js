@@ -8,6 +8,18 @@ const userApi = require('../auth/api.js');
 
 const app = require('../app');
 
+const onBackToProducts = function (event) {
+  event.preventDefault();
+  $('#user-page').hide();
+  $('#content').show();
+};
+
+const onBackToOrders = function (event) {
+  event.preventDefault();
+  $('#order-page').hide();
+  $('#user-page').show();
+};
+
 const onGetOrders = function (event) {
   event.preventDefault();
   api.getOrders(event)
@@ -95,6 +107,8 @@ const addHandlers = () => {
   $(window).on('beforeunload', onDeleteOrder);
   $('#payment-form').on('submit', onPaymentSubmit);
   $('#my-orders-button').on('click', onGetUserOrders);
+  $('#user-page').on('click', '#back-products-button', onBackToProducts);
+  $('#order-page').on('click', '#back-orders-button', onBackToOrders);
 };
 
 module.exports = {

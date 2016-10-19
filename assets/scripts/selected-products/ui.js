@@ -30,7 +30,9 @@ const getMyOrderSuccess = (data) => {
     data.totalPrice = totalPrice.toFixed(2);
   };
   selectedProducts.forEach(calcTotalCost, selectedProducts);
-  $('#user-page').html(loadPastOrder(data));
+  $('#order-page').html(loadPastOrder(data));
+  $('#order-page').show();
+  $('#user-page').hide();
 };
 
 const createSelectedProductsSuccess = (data) => {
