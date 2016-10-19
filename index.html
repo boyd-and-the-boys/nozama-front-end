@@ -2,16 +2,18 @@
 <html>
     <head>
       <title>Generic Assemblage</title>
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
       <nav>
+
         <span class="user-dropdown">
           <ul class="nav nav-pills">
             <li role="presentation" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                Dropdown <span class="caret"></span>
+                Account <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
                 <li>
@@ -65,21 +67,17 @@
             </form>
           </div>
         </div>
-<<<<<<< f05fa2cab0c87a50dcdee5dcd2c3849f2c0b7933
       </div>
-      <button type="button" class="nav-button log-in-button">Log In</button>
-      <span class="nav-button glyphicon glyphicon-shopping-cart"></span>
-    </nav>
-=======
-        <button type="button" class="nav-button about-button">About</button>
-        <button type="button" class="nav-button log-in-button">Log In</button>
-        <span class="nav-button glyphicon glyphicon-shopping-cart"></span>
-        <span class="cart-number">0</span>
-      </nav>
->>>>>>> Complete front-end README
-      <!-- <h1>Nozama</h1> -->
-    <div class="div">
 
+      <button type="button" class="nav-button about-button">About</button>
+
+      <button type="button" class="nav-button log-in-button">Log In</button>
+
+      <span class="nav-button glyphicon glyphicon-shopping-cart"></span>
+
+    </nav>
+
+    <div class="div">
     <header>
       <img class="header-logo" src="logo.gif" alt="Logo" />
     </header>\
@@ -186,26 +184,52 @@
 
     </div>
 
-    <div id="shopping-cart">
-      <h2>Shopping Cart</h2>
-      <div class="selected-products">
-              <!--handlebars templates go here-->
-      </div>
-
-      <div id="checkout">
-        <button type="button" class="checkout-button" data-toggle="modal" data-target="#submitPaymentModal">
-          Checkout
-        </button>
-
-      </div>
-    </div>
-
     <div id="content">
       <!--handlebars templates go here-->
     </div>
-
-
   </div>
-    <script src="https://js.stripe.com/v2/" type="text/javascript"></script>
+
+
+  <script src="https://js.stripe.com/v2/" type="text/javascript"></script>
+  <div id="shopping-cart">
+    <h2>Shopping Cart</h2>
+    <hr>
+    <div class="selected-products">
+            <!--handlebars templates go here-->
+    </div>
+    <div id="checkout">
+      <form action="/submit-payment" method="POST">
+        <!--
+        Don't change src. We can change the class, but I think stripe-button gives the Stripe styling
+        data-amount is the price in cents (2000 = $20.00)
+        data-name is the name of our website (Nozama/Generic Assemblage)
+        data-description can be anything, but might make the most sense as the number of t-shirts
+        data-image is a logo (Jen, we can use the logo you made; they recommend minimum 128x128)
+        data-locale="auto" sets the language to the user's current area. Probably shouldn't change this
+        data-zip-code specifies whether Stripe should verify the zip code. Stripe highly recommends setting to true
+        data-billing-address specifies whether Stripe should collect billing address info. Default is false
+        data-currency sets the currency used (3-letter ISO code). Default is USD
+        data-shipping-address specifies whether Stripe should collect shipping address info. Default is false
+        data-panel-label changes the text on the payment button within the form (Subscribe, Pay, {{amount}}, etc.). {{amount}} will show the price shown in data-amount
+        data-label changes the text on the blue button that opens the form. Default is "Pay with Card"
+        data-email will prefill the Checkout email field if it is already known
+        data-remember-me specifies whether to include the "Remember Me" checkbox. Default is true
+        opened allows you to set a callback to invoke when the form is opened
+        closed allows you to set a callback to invoke when the form is closed
+        -->
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+          data-amount="2000"
+          data-name="Nozama.com"
+          data-description="2 widgets"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto"
+          data-label="Checkout"
+          data-zip-code="true">
+        </script>
+      </form>
+    </div>
+  </div>
   </body>
 </html>
