@@ -101,7 +101,14 @@ body {
 
 #shopping-cart h2 {
   margin-left: 10px;
+  color: black;
+  font-weight: 100;
 }
+
+.selected-product {
+  margin: 1.5em 2em;
+}
+
 
 .remove {
   float: right;
@@ -110,16 +117,12 @@ body {
 
 .selected-product-name {
   font-size: 15px;
-  font-weight: 100;
-  color: red;
+  font-weight: 400;
+  color: $gold-leaf;
 }
 
-.selected-product {
-  margin: 2em 2em;
-}
-
-.spformat {
-  margin: 10px;
+.update-selproduct-form .change-style {
+  float: right;
 }
 
 .total-price {
@@ -129,11 +132,31 @@ body {
   right: 20px;
 }
 
+.spformat {
+  margin: 10px 0;
+}
+
+.update-button {
+  float: right;
+  border-radius: 3px;
+  background-color: $white;
+  color: $medium-grey;
+  width: 50px;
+  box-shadow: none;
+  border:none;
+}
+
 #checkout {
   float: right;
   position: fixed;
   bottom: 20px;
   right: 20px;
+}
+
+.stripe-button-el span {
+  background: $dark-grey;
+  text-shadow: 0;
+  border-radius: 0;
 }
 
 //ABOUT PAGE

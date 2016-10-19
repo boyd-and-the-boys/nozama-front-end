@@ -5,11 +5,11 @@
         {{_product.name}}
       </div>
         <form class="update-selproduct-form">
-          <div class="selected-product-quantity spformat">
-            <p class="qty-style">
-              QTY: {{quantity}}
-            </p>
-            <select name="selectedProduct[quantity]" class="custom-select float-left">
+          <div class="selected-product-quantity float-left spformat">
+            <span class="qty-style">
+              Qty: {{quantity}}
+            </span>
+            <select name="selectedProduct[quantity]" class="custom-select change-style float-left spformat">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -18,18 +18,18 @@
                 <option value="25">25</option>
             </select>
           </div>
-          <div class="selected-product-size spformat">
-            <p class="qty-style">
+          <div class="selected-product-size float-left spformat">
+            <span class="qty-style">
               Size: {{size}}
-            </p>
-            <select name="selectedProduct[size]" class="custom-select float-left">
+            </span>
+            <select name="selectedProduct[size]" class="custom-select change-style float-left spformat">
                 <option value="S">S</option>
                 <option value="M">M</option>
                 <option value="L">L</option>
                 <option value="XL">XL</option>
             </select>
           </div>
-          <input class="float-left update-button" type="submit" name="submit" value="Update">
+          <input class="update-button" type="submit" name="submit" value="Update">
         </form>
       <div class="selected-product-price" value={{_product.price}}>${{_product.price}}</div>
     </div>
