@@ -8,6 +8,12 @@ const getOrdersSuccess = (data) => {
 
 const getUserOrdersSuccess = (data) => {
   console.log(data);
+  data.orders.forEach((order) => {
+    if (order.isComplete) {
+      let dateParts = order.dateOrdered.split("T");
+      order.dateOrdered = dateParts[0];
+    }
+  });
   $('#content').hide();
   $('#user-page').html(loadOrders(data));
   $('#user-page').show();
