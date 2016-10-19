@@ -3,7 +3,6 @@
 const loadProducts = require ('../../templates/products.handlebars');
 
 const getProductsSuccess = (data) => {
-  console.log(data);
   $('#content').html(loadProducts(data));
 };
 

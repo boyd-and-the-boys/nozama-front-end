@@ -15,7 +15,6 @@ const onAbout = function (event) {
 
 const onLogIn = function (event) {
   event.preventDefault();
-  console.log("button clicked");
   $('#log-in-page').show();
   $('#content').hide();
 };

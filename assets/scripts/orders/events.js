@@ -57,9 +57,7 @@ const onPaymentSubmit = (event) => {
     exp_year: $('#card-exp-year').val()
   },
   function (status, response) {
-    console.log("Data is:", response);
     if (response.error) {
-      console.log(response.error.message);
       $('#payment-errors').html(response.error.message);
       $('#payment-form').on('submit', onPaymentSubmit);
     } else {

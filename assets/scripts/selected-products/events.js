@@ -34,7 +34,6 @@ const onUpdateSelectedProduct = function (event) {
   data.selProductId = selproductId;
   api.updateSelectedProduct(data)
     .done (function (data) {
-      console.log(data);
       ui.updateSelectedProductSuccess(data);
       shoppingCart.onRefreshShoppingCart();
     })
