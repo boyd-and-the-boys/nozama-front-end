@@ -9,8 +9,10 @@ const onGetProducts = function () {
     .fail (ui.failure);
 };
 
-const onClickProduct = function () {
-  $('.photo-modal').show();
+const onClickProduct = function (event) {
+  event.preventDefault();
+
+  $(event.target).parent().find('.photo-modal').first().modal('show');
 };
 
 const addHandlers = () => {
