@@ -1,12 +1,15 @@
   {{#each selectedProducts}}
     <div class="selected-product" data-id={{_id}}>
+      <span class="glyphicon glyphicon-remove remove"></span>
       <div class="selected-product-name spformat">
         {{_product.name}}
       </div>
         <form class="update-selproduct-form">
           <div class="selected-product-quantity spformat">
-            {{quantity}}
-            <select name="selectedProduct[quantity]" class="custom-selec float-left">
+            <p class="qty-style">
+              QTY: {{quantity}}
+            </p>
+            <select name="selectedProduct[quantity]" class="custom-select float-left">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -16,18 +19,19 @@
             </select>
           </div>
           <div class="selected-product-size spformat">
-            {{size}}
+            <p class="qty-style">
+              Size: {{size}}
+            </p>
             <select name="selectedProduct[size]" class="custom-select float-left">
                 <option value="S">S</option>
                 <option value="M">M</option>
                 <option value="L">L</option>
                 <option value="XL">XL</option>
             </select>
-            <input class="float-left update-button" type="submit" name="submit" value="Update">
+          </div>
+          <input class="float-left update-button" type="submit" name="submit" value="Update">
         </form>
-      </div>
-      <div class="selected-product-price spformat" value={{_product.price}}>${{_product.price}}</div>
-      <span class="glyphicon glyphicon-remove remove"></span>
+      <div class="selected-product-price" value={{_product.price}}>${{_product.price}}</div>
     </div>
   {{/each}}
-  <h4>Total Price: ${{totalPrice}}</h4>
+  <h4 class="total-price">Total Price: ${{totalPrice}}</h4>

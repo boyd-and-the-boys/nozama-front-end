@@ -1,8 +1,6 @@
 {{#each products}}
   <span class="product" data-id={{_id}}>
     <img class="photo-small" src={{photoSmall}} alt="smallphoto" data-toggle="modal" data-target=".photo-modal"/>
-    <p class="product-name">{{name}}</p>
-    <p class="product-price">${{price}}</p>
 
     <form class="select-product-form">
       <select name="selectedProduct[size]" class="custom-select size float-left">
@@ -19,9 +17,11 @@
           <option value="10">10</option>
           <option value="25">25</option>
       </select>
-      <input class="float-left add-button" type="submit" name="submit" value="ADD">
+      <input class="float-left add-button" type="submit" name="submit" value="Add">
 
     </form>
+    <p class="product-name">{{name}}</p>
+    <p class="product-price">${{price}}</p>
   </span>
 {{/each}}
 <!--Hidden on loadProducts-->
