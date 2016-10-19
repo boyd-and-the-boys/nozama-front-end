@@ -1,4 +1,4 @@
-Welcome to Genèric Assemblage, a artisanal fashion-forward boutique specializing
+Welcome to Genèric Assemblage, an artisanal fashion-forward boutique specializing
 in the finest apparel associated with WDI 14. Perfect for staying in or for a
 swinging night out on the town, these beautifully crafted garments are sure to
 dazzle and delight all the lucky souls who lay eyes upon you!
