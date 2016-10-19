@@ -9,6 +9,7 @@ header {
   color: $ga-blue;
   background-color: $gold-leaf;
   padding-bottom: 2em;
+  border-bottom: $white solid 2px;
 }
 
 nav {
@@ -95,6 +96,13 @@ body {
 
 #checkout {
   float: right;
+}
+
+//ABOUT PAGE
+#about-page {
+  display: none;
+  line-height: 2.5;
+  width: 500px;
 }
 
 //LOG IN PAGE

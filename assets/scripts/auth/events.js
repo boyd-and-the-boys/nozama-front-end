@@ -7,6 +7,12 @@ const app = require('../app');
 const orderApi = require('../orders/api');
 const orderUi = require('../orders/ui');
 
+const onAbout = function (event) {
+  event.preventDefault();
+  $('#about-page').show();
+  $('#content').hide();
+};
+
 const onLogIn = function (event) {
   event.preventDefault();
   console.log("button clicked");
@@ -76,6 +82,7 @@ const onChangePassword = function (event) {
 };
 
 const addHandlers = () => {
+  $('.about-button').on('click', onAbout);
   $('.log-in-button').on('click', onLogIn);
   $('#sign-up-form').on('submit', onSignUp);
   $('#sign-in-form').on('submit', onSignIn);
