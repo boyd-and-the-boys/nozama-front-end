@@ -15,6 +15,13 @@ const onGetOrders = function (event) {
     .fail (ui.failure);
 };
 
+const onGetUserOrders = function (event) {
+  event.preventDefault();
+  api.getUserOrders()
+    .done(ui.getUserOrdersSuccess)
+    .fail(ui.failure);
+};
+
 const onCreateOrder = function (event) {
   event.preventDefault();
   api.createOrder()
@@ -87,6 +94,7 @@ return false;
 const addHandlers = () => {
   $(window).on('beforeunload', onDeleteOrder);
   $('#payment-form').on('submit', onPaymentSubmit);
+  $('#my-orders-button').on('click', onGetUserOrders);
 };
 
 module.exports = {
