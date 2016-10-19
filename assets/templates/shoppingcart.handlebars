@@ -3,17 +3,31 @@
       <div class="selected-product-name spformat">
         {{_product.name}}
       </div>
-      <div class="selected-product-quantity spformat">
-        {{quantity}}
-        <!-- <input type="text" name="selectedProduct[quantity]" placeholder="quantity"> -->
-      </div>
-      <div class="selected-product-size spformat">
-        {{size}}
-        <!-- <input type="text" name="selectedProduct[size]" placeholder="quantity"> -->
+        <form class="update-selproduct-form">
+          <div class="selected-product-quantity spformat">
+            {{quantity}}
+            <select name="selectedProduct[quantity]" class="custom-selec float-left">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+            </select>
+          </div>
+          <div class="selected-product-size spformat">
+            {{size}}
+            <select name="selectedProduct[size]" class="custom-select float-left">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+            </select>
+            <input class="float-left update-button" type="submit" name="submit" value="Update">
+        </form>
       </div>
       <div class="selected-product-price spformat" value={{_product.price}}>${{_product.price}}</div>
+      <span class="glyphicon glyphicon-remove remove"></span>
     </div>
   {{/each}}
   <h4>Total Price: ${{totalPrice}}</h4>
-
-  

@@ -48,6 +48,7 @@ const onDeleteOrder = function () {
 
 const addHandlers = () => {
   $(window).on('beforeunload', onDeleteOrder);
+
 };
 
 module.exports = {

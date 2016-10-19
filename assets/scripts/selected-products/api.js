@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require ('../app');
+
 const getMyShoppingCart = function() {
   let orderId = $('#shopping-cart').data('id');
   return $.ajax({
@@ -28,9 +29,9 @@ const createSelectedProduct = (data) => {
   });
 };
 
-const patchSelectedProducts = (data) => {
+const updateSelectedProduct = (data) => {
   return $.ajax({
-    url: app.host + '/selected-products/',
+    url: app.host + '/selected-products/' + data.selProductId,
     method: 'PATCH',
     headers: {
       authorization: 'Token token=' + app.user.token
@@ -39,20 +40,9 @@ const patchSelectedProducts = (data) => {
   });
 };
 
-const showSelectedProducts = (data) => {
+const deleteSelectedProduct = (selProductId) => {
   return $.ajax({
-    url: app.host + '/selected-products/',
-    method: 'SHOW',
-    headers: {
-      authorization: 'Token token=' + app.user.token
-    },
-    data: data,
-  });
-};
-
-const deleteSelectedProduct = (id) => {
-  return $.ajax({
-    url: app.host + '/selected-products/' + id,
+    url: app.host + '/selected-products/' + selProductId,
     method: 'DELETE',
     headers: {
       authorization: 'Token token=' + app.user.token,
@@ -63,7 +53,6 @@ const deleteSelectedProduct = (id) => {
 module.exports = {
   getMyShoppingCart,
   createSelectedProduct,
-  patchSelectedProducts,
-  showSelectedProducts,
-  deleteSelectedProduct
+  updateSelectedProduct,
+  deleteSelectedProduct,
 };
