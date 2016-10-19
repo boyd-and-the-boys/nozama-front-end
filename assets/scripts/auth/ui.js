@@ -5,7 +5,6 @@ const app = require ('../app');
 const userSignUpSuccess = () => {
   // app.user.email = aldkfjalkdf
   app.user.guest = false;
-  console.log("Success");
   $('#log-in-page').hide();
   $('#content').show();
   $('.user-dropdown').show();
@@ -17,12 +16,10 @@ const userSignUpSuccess = () => {
 
 const guestSignUpSuccess = (data) => {
   app.user = data.user;
-  console.log(data);
 };
 
 const signInSuccess = (data) => {
   app.user = data.user;
-  console.log(data);
   $('#log-in-page').hide();
   $('#content').show();
   $('.user-dropdown').show();

@@ -14,7 +14,6 @@ const createOrder = () => {
   data.order = {
     isComplete: false
   };
-  console.log(data);
   return $.ajax({
     url: app.host + '/orders',
     method: 'POST',
