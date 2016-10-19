@@ -6,7 +6,8 @@
 //HEADER
 header {
   text-align: center;
-  background-color: $light-grey;
+  color: $ga-blue;
+  background-color: $gold-leaf;
   padding-bottom: 2em;
 }
 
@@ -17,7 +18,7 @@ nav {
 }
 
 .nav-button {
-  background-color: $light-grey;
+  background-color: $gold-leaf;
   font-size: 1.2em;
   margin: 1em;
   border: 0;
@@ -48,14 +49,19 @@ nav {
   margin: 2px 0;
 }
 
+//BODY
+body {
+  background-color: $powder;
+}
+
 //SHOPPING CART
 #shopping-cart {
   display: none;
   width: 20%;
   height: 95%;
   overflow: scroll;
-  border: $medium-grey solid 2px;
-  background-color: $white;
+  border: $white solid 2px;
+  background-color: $powder;
   position: fixed;
   z-index: 1;
   right: 0;
@@ -97,8 +103,9 @@ nav {
 
 //CONTENT
 #content {
-  width: 900px;
+  background-color: $fresh;
   margin: 3em auto;
+  width: 900px;
 }
 
 //PRODUCTS
