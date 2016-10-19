@@ -33,12 +33,13 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
-  orderApi.deleteOrder()
-    .done (function () {
-      api.deleteUser()
+
+  api.signIn(data)
+    .done (function (data) {
+      orderApi.deleteOrder()
         .done (function () {
-          api.signIn(data)
-            .done (function (data) {
+          api.deleteUser()
+            .done (function () {
               ui.signInSuccess(data);
               orderApi.getMyShoppingCart()
                 .done (function (data) {
