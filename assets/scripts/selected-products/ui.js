@@ -1,7 +1,7 @@
 'use strict';
 
 const loadSelectedProducts = require ('../../templates/shoppingcart.handlebars');
-
+const loadPastOrder = require ('../../templates/past-order.handlebars');
 
 const getMyShoppingCartSuccess = (data) => {
 
@@ -25,13 +25,12 @@ const getMyOrderSuccess = (data) => {
   let selectedProducts = data.selectedProducts;
 
   let calcTotalCost = function (selectedProducts) {
-    console.log(selectedProducts);
     price = selectedProducts._product.price * selectedProducts.quantity;
     totalPrice += price;
     data.totalPrice = totalPrice.toFixed(2);
   };
   selectedProducts.forEach(calcTotalCost, selectedProducts);
-  $('#user-page').html(loadSelectedProducts(data));
+  $('#user-page').html(loadPastOrder(data));
 };
 
 const createSelectedProductsSuccess = (data) => {

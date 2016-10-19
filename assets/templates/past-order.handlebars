@@ -1,0 +1,8 @@
+{{#each selectedProducts}}
+  <div class="selected-product" data-id={{_id}}>
+    <div class="selected-product-name spformat">
+      {{quantity}} {{size}} {{_product.name}} at ${{_product.price}}
+    </div>
+  </div>
+{{/each}}
+<h4>Total Price: ${{totalPrice}}</h4>

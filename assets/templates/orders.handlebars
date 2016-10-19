@@ -1,8 +1,7 @@
 {{#each orders}}
   {{#if isComplete}}
     <span class="order" data-id={{_id}}>
-      <p>Order </p>
-      <p class="order-date">{{dateOrdered}}</p>
+      <p>Order on {{dateOrdered}}</p>
     </span>
   {{/if}}
 {{/each}}
