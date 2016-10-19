@@ -23,10 +23,16 @@ and whiteboarding to our great benefit. We chose the gitflow approach to workflo
 meaning we created multiple development branches and only pushed finalized
 code to the master branch.
 
+Links:
+
 User stories: http://imgur.com/eKfYvqc
+
 ERD: http://imgur.com/Asc0ZaN
+
 Wireframes: http://imgur.com/FESua2b
+
 Deployed front-end: https://boyd-and-the-boys.github.io/nozama-front-end/
+
 Deployed back-end: https://generic-assemblage.herokuapp.com 
 
 Like any group of talented developers, we encountered a few hurdles while
