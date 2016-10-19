@@ -3,19 +3,8 @@ in the finest apparel associated with WDI 14. Perfect for staying in or for a
 swinging night out on the town, these beautifully crafted garments are sure to
 dazzle and delight all the lucky souls who lay eyes upon you!
 
-Multiple technologies were used in building this webpage, including:
-
-Node
-Express
-Mongo
-Mongoose
-JavaScript
-Heroku
-HTML
-CSS
-Bootstrap
-Handlebars
-Stripe
+Multiple technologies were used in building this webpage, including Node, Express, 
+Mongo, Mongoose, JavaScript, Heroku, HTML, CSS, Bootstrap, Handlebars and Stripe.
 
 Our overarching approach to building this website was highly methodical and
 step-driven; we focused heavily on planning out each day by using scrum meetings
