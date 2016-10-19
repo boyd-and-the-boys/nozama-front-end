@@ -10,7 +10,10 @@ Our overarching approach to building this website was highly methodical and
 step-driven; we focused heavily on planning out each day by using scrum meetings
 and whiteboarding to our great benefit. We chose the gitflow approach to workflow,
 meaning we created multiple development branches and only pushed finalized
-code to the master branch.
+code to the master branch. A major breakthrough in the development process came 
+with the conception of a guest user, which allows users to make a purchase even without
+an account.
+
 
 **Links:**
 
