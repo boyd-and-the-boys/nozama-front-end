@@ -18,6 +18,21 @@ const getMyShoppingCart = function() {
   });
 };
 
+const getMyOrder = function(orderId) {
+  return $.ajax({
+    url: app.host + '/order-products',
+    method: 'GET',
+    headers: {
+        authorization: 'Token token=' + app.user.token,
+      },
+    data : {
+      selectedProduct: {
+        _order : orderId,
+      }
+    }
+  });
+};
+
 const createSelectedProduct = (data) => {
   return $.ajax({
     url: app.host + '/selected-products',
@@ -52,6 +67,7 @@ const deleteSelectedProduct = (selProductId) => {
 
 module.exports = {
   getMyShoppingCart,
+  getMyOrder,
   createSelectedProduct,
   updateSelectedProduct,
   deleteSelectedProduct,
