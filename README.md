@@ -12,7 +12,7 @@ and whiteboarding to our great benefit. We chose the gitflow approach to workflo
 meaning we created multiple development branches and only pushed finalized
 code to the master branch. A major breakthrough in the development process came 
 with the conception of a guest user, which allows users to make a purchase even without
-an account.
+a logged-in account.
 
 
 **Links:**
