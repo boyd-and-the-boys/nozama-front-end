@@ -75,6 +75,75 @@
     <header>
       <img class="header-logo" src="logo.gif" alt="Logo" />
     </header>\
+    <!-- Checkout modal -->
+    <div class="modal fade" id="submitPaymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        <!-- //Body of Modal -->
+          <form id="payment-form" class="modal-body">
+            <h3>Please enter your payment information below:</h3>
+
+            <div class="payment-errors"></div>
+
+            <div class="form-group row modal-row">
+              <label class="col-sm-4 col-form-label">
+                Credit Card Number
+              </label>
+              <div class="col-sm-8">
+                <input id="card-number" type="text" size="20" maxlength="16" data-stripe="number"/>
+              </div>
+            </div>
+
+            <div class="form-group row modal-row">
+              <label class="col-form-label">
+                CVC
+              </label>
+              <div class="col-sm-8">
+                <input id="card-cvc" type="text" size="3" maxlength="3" data-stripe="cvc"/>
+              </div>
+            </div>
+
+            <div class="form-group row modal-row">
+              <label class="col-form-label">
+                Expiration Date
+              </label>
+              <select id="card-exp-month" name="CCExpiresMonth">
+                <option value="" selected>-Month-
+                <option value="01">01-JAN
+                <option value="02">02-FEB
+                <option value="03">03-MAR
+                <option value="04">04-APR
+                <option value="05">05-MAY
+                <option value="06">06-JUN
+                <option value="07">07-JUL
+                <option value="08">08-AUG
+                <option value="09">09-SEP
+                <option value="10">10-OCT
+                <option value="11">11-NOV
+                <option value="12">12-DEC
+              </select>
+              <select id="card-exp-year" name="CCExpiresYear">
+                <option value="" selected>-Year-
+                <option value="16">2016
+                <option value="17">2017
+                <option value="18">2018
+                <option value="19">2019
+                <option value="20">2020
+                <option value="21">2021
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary submit-button">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End of checkout modal -->
     <div id="log-in-page">
       <div class="log-in">
         <h3>Create an Account</h3>
@@ -101,49 +170,24 @@
 
     </div>
 
+    <div id="shopping-cart">
+      <h2>Shopping Cart</h2>
+      <div class="selected-products">
+              <!--handlebars templates go here-->
+      </div>
+
+      <div id="checkout">
+        <button type="button" class="checkout-button" data-toggle="modal" data-target="#submitPaymentModal">
+          Checkout
+        </button>
+
+      </div>
+    </div>
+
     <div id="content">
       <!--handlebars templates go here-->
     </div>
 
-  </div>
-  <div id="shopping-cart">
-    <h2>Shopping Cart</h2>
-    <div class="selected-products">
-            <!--handlebars templates go here-->
-    </div>
-    <div id="checkout">
-      <form action="/submit-payment" method="POST">
-        <!--
-        Don't change src. We can change the class, but I think stripe-button gives the Stripe styling
-        data-amount is the price in cents (2000 = $20.00)
-        data-name is the name of our website (Nozama/Generic Assemblage)
-        data-description can be anything, but might make the most sense as the number of t-shirts
-        data-image is a logo (Jen, we can use the logo you made; they recommend minimum 128x128)
-        data-locale="auto" sets the language to the user's current area. Probably shouldn't change this
-        data-zip-code specifies whether Stripe should verify the zip code. Stripe highly recommends setting to true
-        data-billing-address specifies whether Stripe should collect billing address info. Default is false
-        data-currency sets the currency used (3-letter ISO code). Default is USD
-        data-shipping-address specifies whether Stripe should collect shipping address info. Default is false
-        data-panel-label changes the text on the payment button within the form (Subscribe, Pay, {{amount}}, etc.). {{amount}} will show the price shown in data-amount
-        data-label changes the text on the blue button that opens the form. Default is "Pay with Card"
-        data-email will prefill the Checkout email field if it is already known
-        data-remember-me specifies whether to include the "Remember Me" checkbox. Default is true
-        opened allows you to set a callback to invoke when the form is opened
-        closed allows you to set a callback to invoke when the form is closed
-        -->
-        <script
-          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-          data-amount="2000"
-          data-name="Nozama.com"
-          data-description="2 widgets"
-          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-          data-locale="auto"
-          data-label="Checkout"
-          data-zip-code="true">
-        </script>
-      </form>
-    </div>
   </div>
   </body>
 </html>
