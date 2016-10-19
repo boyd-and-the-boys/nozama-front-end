@@ -14,12 +14,11 @@ header {
 nav {
   text-align: right;
   padding: 0 2em;
-  background-color: black;
+  background-color: $gold-leaf;
 }
 
 .nav-button {
   background-color: $gold-leaf;
-  background-color: black;
   color: $white;
   font-size: 1.2em;
   margin: 1em;
