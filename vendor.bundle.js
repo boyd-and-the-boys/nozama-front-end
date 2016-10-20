@@ -100,7 +100,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(2);
-	module.exports = __webpack_require__(55);
+
+	module.exports = __webpack_require__(56);
+
 
 
 /***/ },
@@ -9935,7 +9937,11 @@
 
 /***/ },
 
+<<<<<<< e7b978b8f277e70d98adb8280de3f3c275885676
 /***/ 55:
+=======
+/***/ 56:
+>>>>>>> Prepares for deployment
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(jQuery) {/*!
