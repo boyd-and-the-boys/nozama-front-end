@@ -1,9 +1,13 @@
-{{#each selectedProducts}}
-  <div class="selected-product" data-id={{_id}}>
-    <div class="selected-product-name spformat">
-      {{quantity}} {{size}} {{_product.name}} at ${{_product.price}}
+<h3>Your Order Included:</h3>
+
+<div class="white-div">
+  {{#each selectedProducts}}
+    <div class="selected-product" data-id={{_id}}>
+      <div class="past-order-info spformat">
+        {{quantity}} {{size}} {{_product.name}} at ${{_product.price}}
+      </div>
     </div>
-  </div>
-{{/each}}
-<h4>Total Price: ${{totalPrice}}</h4>
+  {{/each}}
+  <h4 class="past-order-price">Total Price: ${{totalPrice}}</h4>
+</div>
 <div id='back-orders-button'> < Back to Orders</div>

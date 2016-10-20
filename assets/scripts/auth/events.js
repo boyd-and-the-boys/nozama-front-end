@@ -11,12 +11,18 @@ const onAbout = function (event) {
   event.preventDefault();
   $('#about-page').show();
   $('#content').hide();
+  $('#order-page').hide();
+  $('#user-page').hide();
+  $('#log-in-page').hide();
 };
 
 const onLogIn = function (event) {
   event.preventDefault();
   $('#log-in-page').show();
   $('#content').hide();
+  $('#about-page').hide();
+  $('#order-page').hide();
+  $('#user-page').hide();
 };
 
 const onSignUp = function (event) {
