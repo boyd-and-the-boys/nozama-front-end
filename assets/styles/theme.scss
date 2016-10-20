@@ -7,33 +7,26 @@
 //HEADER
 header {
   text-align: center;
-  // background-color: black;
-  background-color: $gold-leaf;
-  padding-bottom: 2em;
   border-bottom: $white solid 2px;
-  padding: 3em 0;
 }
 
 nav {
   text-align: right;
   background-color: black;
   padding-right: 1em;
-  // background-color: $gold-leaf;
 }
 
 .nav-button {
-  // background-color: $gold-leaf;
   background-color: black;
-  // background-color: black;
   color: $white;
   font-size: 1.2em;
   padding: 8px 10px;
   border: 0;
 }
 
-// .nav-button:hover {
-//   background-color: $gold-leaf;
-// }
+.yellow-hover:hover {
+  background-color: $gold-leaf;
+}
 
 .change-pwd-button{
   display: none;
@@ -68,12 +61,13 @@ nav {
   font-size: 1.2em;
 }
 
-.nav-pills {
-  border-radius: none;
+#changePwdModal {
+  text-align: center;
 }
 
-.nav > li > a {
-  padding: none;
+.submit-button {
+  background-color: black;
+  border-color: $white;
 }
 
 
@@ -171,7 +165,7 @@ body {
 //LOG IN PAGE
 #log-in-page {
   display:none;
-  width: 900px;
+  width: 600px;
   margin: 3em auto;
 }
 
