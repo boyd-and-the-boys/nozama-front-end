@@ -6,9 +6,15 @@
 
 //HEADER
 header {
-  text-align: center;
   border-bottom: $white solid 2px;
 }
+
+.header-logo {
+  max-width: 100%;
+  height: auto;
+}
+
+
 
 nav {
   text-align: right;
@@ -28,7 +34,7 @@ nav {
   background-color: $gold-leaf;
 }
 
-.change-pwd-button{
+.change-pwd-button {
   display: none;
 }
 
@@ -162,6 +168,10 @@ body {
   width: 500px;
 }
 
+#back-products-button {
+  margin-top: 2em;
+}
+
 //LOG IN PAGE
 #log-in-page {
   display:none;
@@ -169,11 +179,81 @@ body {
   margin: 3em auto;
 }
 
+.no-button {
+  background: $powder;
+  text-shadow: 0;
+  border-radius: 0;
+  border: none;
+  font-size: 15px;
+}
+
 //USER PAGE
 #user-page {
   display:none;
-  width: 900px;
+  text-align: center;
+  width: 500px;
   margin: 3em auto;
+}
+
+#back-products-button {
+  text-align: center;
+}
+
+#back-products-button:hover {
+  color: $white;
+}
+
+#user-page h3 {
+  margin-bottom: 1em;
+}
+
+.order p {
+  font-size: 15px;
+  font-weight: 100;
+  font-style: italic;
+  color: $dark-grey;
+}
+
+.order p:hover {
+  color: $watermelon;
+  font-weight: 400;
+}
+
+//PAST ORDERS
+#order-page {
+  width: 300px;
+  margin: 3em auto;
+  text-align: center;
+}
+
+#order-page h3 {
+  margin-bottom: 1em;
+}
+
+.white-div {
+  background-color: $white;
+  border: 1px $medium-grey solid;
+  border-radius: 2px;
+  padding: 1.5em;
+}
+
+.past-order-info {
+  font-size: 15px;
+  font-weight: 400;
+  color: $dark-grey;
+}
+
+#back-orders-button {
+  margin-top: 2em;
+}
+
+#back-orders-button:hover {
+  color: $white;
+}
+
+.past-order-price {
+  color: $watermelon;
+  margin-top: 1.5em;
 }
 
 //CONTENT
@@ -229,4 +309,8 @@ body {
   margin: 0 5px;
   box-shadow: none;
   border:none;
+}
+
+.photo-modal {
+  text-align: center;
 }
