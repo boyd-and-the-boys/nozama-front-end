@@ -295,7 +295,7 @@ webpackJsonp([0],[
 	'use strict';
 
 	var app = {
-	  host: 'https://generic-assemblage.herokuapp.com/'
+	  host: 'https://generic-assemblage.herokuapp.com'
 	};
 
 	module.exports = app;
