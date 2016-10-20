@@ -1,6 +1,7 @@
 tmp
 dist
 specs.js
+dist
 #vendor.js
 specs.js
 #*bundle.js
